@@ -1,4 +1,4 @@
-module mynewtool
+module github.com/mustafaerbay/mynewtool
 
 go 1.15
 
