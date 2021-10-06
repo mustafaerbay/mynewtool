@@ -23,3 +23,10 @@ jobs:
 
     - name: Test
       run: go test -v ./...
+  package:
+    steps:
+    - uses: actions/upload-artifact@v2
+      with:
+        name: mynewtool
+        path: .
+        if-no-files-found: error
