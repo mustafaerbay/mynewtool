@@ -24,6 +24,7 @@ jobs:
     - name: Test
       run: go test -v ./...
   package:
+    runs-on: ubuntu-latest
     steps:
     - uses: actions/upload-artifact@v2
       with:
