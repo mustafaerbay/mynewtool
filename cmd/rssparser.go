@@ -31,7 +31,6 @@ import (
 type issue struct {
 	title string
 	author string
-	assignee string
 }
 
 // rssParserCmd represents the parser command
