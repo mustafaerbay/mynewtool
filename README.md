@@ -4,7 +4,6 @@
 GOOS=windows GOARCH=386 go build -o mynewtool.exe .
 GOOS=linux GOARCH=386 go build -o mynewtool_x86 .
 
-
 GOOS - Target Operating System	GOARCH - Target Platform
 android	arm
 darwin	386
