@@ -3,8 +3,10 @@ module github.com/mustafaerbay/mynewtool
 go 1.15
 
 require (
+	github.com/gin-gonic/gin v1.7.4
 	github.com/mmcdole/gofeed v1.1.3
-	github.com/ryanuber/columnize v0.0.0-20160712163229-9b3edd62028f
+	github.com/ryanuber/columnize v0.0.0-20160712163229-9b3edd62028f // indirect
+	github.com/siddontang/go-log v0.0.0-20190221022429-1e957dd83bed // indirect
 	github.com/spf13/cobra v1.2.1
 	github.com/spf13/viper v1.9.0
 	github.com/xuri/excelize/v2 v2.4.1

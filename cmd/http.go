@@ -38,7 +38,7 @@ var httpCmd = &cobra.Command{
 		}
 
 		http.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
-			fmt.Println("Server start listening on port"+port)
+			fmt.Println("Server start listening on port: "+port)
 		})
 		http.ListenAndServe(":" + port, nil)
 	},

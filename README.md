@@ -1,5 +1,6 @@
 [![Go](https://github.com/mustafaerbay/mynewtool/actions/workflows/go.yml/badge.svg?branch=master)](https://github.com/mustafaerbay/mynewtool/actions/workflows/go.yml)
 
+huawei cloud account name hwc22802785
 # mynewtool
 GOOS=windows GOARCH=386 go build -o mynewtool.exe .
 GOOS=linux GOARCH=386 go build -o mynewtool_x86 .
