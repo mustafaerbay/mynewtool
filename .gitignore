@@ -11,3 +11,4 @@
 *.csv
 *.bat
 mynewtool*
+__cleancode

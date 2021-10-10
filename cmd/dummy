@@ -1,0 +1,45 @@
+func BeerBrandListToBeerList(beerBrands []BeerBrand) []Beer {
+    var beerList []Beer
+    for _, brand := range beerBrands {
+        for _, beer := range brand {
+            beerList = append(beerList, beer)
+        }
+    }
+    return beerList
+}
+
+########
+
+func GetItem(extension string) (Item, error) {
+    ref, ok := getReference(extension)
+    if !ok {
+        return EmptyItem, ErrReferenceNotFound
+    }
+    return getItemByReference(ref)
+}
+
+func getReference(extension string) (string, bool) {
+    refIface, ok := db.ReferenceCache.Get(extension)
+    if !ok {
+        return EmptyItem, false
+    }
+    return refIface.(string)
+}
+
+func getItemByReference(reference string) (Item, error) {
+    item, ok := getItemFromCache(reference)
+    if !item.Active || !ok {
+        return EmptyItem, ErrItemNotFound
+    }
+    return Item, nil
+}
+
+func getItemFromCache(reference string) (Item, bool) {
+    if itemIface, ok := db.ItemCache.Get(ref); ok {
+        return EmptyItem, false
+    }
+    return itemIface.(Item), true
+}
+
+
+#########
