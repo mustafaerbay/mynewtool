@@ -43,8 +43,16 @@ var rssParserCmd = &cobra.Command{
 		// fmt.Println("")
 		// fmt.Printf("%s|%s",title,author)
 		// fmt.Printf()
-		f.SetCellValue("Sheet1", "B1", title)
-		f.SetCellValue("Sheet1", "C1", author)
+		title2err := f.SetCellValue("Sheet1", "B1", title)
+		if title2err != nil {
+			fmt.Printf("error setting title")
+		}
+
+		author2err := f.SetCellValue("Sheet1", "C1", author)
+		if author2err != nil {
+			fmt.Printf("error setting author")
+		}
+
 		for i := 0; i < len(feed.Items); i++ {
 		 	// fmt.Printf("%s|%s", feed.Items[i].Title, feed.Items[i].Author.Name)
 		// 	fmt.Println("")
@@ -56,15 +64,15 @@ var rssParserCmd = &cobra.Command{
 			val2string := strconv.Itoa(i+1)+"|"+newissue.title+"|"+newissue.author
 			err := f.SetCellValue("Sheet1", "A"+strconv.Itoa(i+2), strconv.Itoa(i+1))
 			if err != nil {
-				fmt.Printf("error")
+				fmt.Printf("error setting number of raw:%s",strconv.Itoa(i+1))
 			}
 			titleErr := f.SetCellValue("Sheet1", "B"+strconv.Itoa(i+2), newissue.title)
 			if titleErr != nil {
-				fmt.Printf("error")
+				fmt.Printf("error setting issue title:%s",newissue.title)
 			}
 			authorerr := f.SetCellValue("Sheet1", "C"+strconv.Itoa(i+2), newissue.author)
 			if authorerr != nil {
-				fmt.Printf("error")
+				fmt.Printf("error setting issue author:%s",newissue.author)
 			}
 			f.SetActiveSheet(index)
 			if err := f.SaveAs("Book1.xlsx"); err != nil {
