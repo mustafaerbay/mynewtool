@@ -54,9 +54,18 @@ var rssParserCmd = &cobra.Command{
 			}
 			// val1=s+strconv.Itoa(i+1)
 			val2string := strconv.Itoa(i+1)+"|"+newissue.title+"|"+newissue.author
-			f.SetCellValue("Sheet1", "A"+strconv.Itoa(i+2), strconv.Itoa(i+1))
-			f.SetCellValue("Sheet1", "B"+strconv.Itoa(i+2), newissue.title)
-			f.SetCellValue("Sheet1", "C"+strconv.Itoa(i+2), newissue.author)
+			err := f.SetCellValue("Sheet1", "A"+strconv.Itoa(i+2), strconv.Itoa(i+1))
+			if err != nil {
+				fmt.Printf("error")
+			}
+			titleErr := f.SetCellValue("Sheet1", "B"+strconv.Itoa(i+2), newissue.title)
+			if titleErr != nil {
+				fmt.Printf("error")
+			}
+			authorerr := f.SetCellValue("Sheet1", "C"+strconv.Itoa(i+2), newissue.author)
+			if authorerr != nil {
+				fmt.Printf("error")
+			}
 			f.SetActiveSheet(index)
 			if err := f.SaveAs("Book1.xlsx"); err != nil {
 				fmt.Println(err)

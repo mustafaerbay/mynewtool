@@ -22,7 +22,10 @@ to quickly create a Cobra application.`,
 		router := gin.Default()
 		router.GET("/albums", common.GetAlbums)
 		router.GET("/albums/:id", common.GetAlbumByID)
-		router.Run(":8080")
+		err := router.Run(":8080")
+		if err != nil {
+			fmt.Printf("Router can not run on port :8080")
+		}
 		fmt.Println("jsonparser called")
 	},
 }
