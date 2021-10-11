@@ -20,7 +20,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        goos: ["386", arm]
+        goarch: ["386", arm]
     steps:
     - uses: actions/checkout@v2
 
@@ -30,7 +30,7 @@ jobs:
         go-version: 1.15
 
     - name: Build
-      run: GOOS=linux GOARCH=${{ matrix.goos }} go build -v -o mynewtool_${{ matrix.goos }}
+      run: GOOS=linux GOARCH=${{ matrix.goarch }} go build -v -o mynewtool_${{ matrix.goarch }}
 
     - name: Test
       run: go test -v ./...
@@ -38,6 +38,6 @@ jobs:
     - name: package
       uses: actions/upload-artifact@v2
       with:
-        name: mynewtool_${{ matrix.arch }}
+        name: mynewtool_${{ matrix.goarch }}
         path: .
         if-no-files-found: error
