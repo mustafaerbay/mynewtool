@@ -17,15 +17,15 @@ var httpCmd = &cobra.Command{
 	DEFAULT_PORT is 8090. `,
 	Run: func(cmd *cobra.Command, args []string) {
 		port, _ := cmd.Flags().GetString("port")
-		
+
 		if port == "" {
 			port = "8090"
 		}
 
 		http.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
-			fmt.Println("Server start listening on port: "+port)
+			fmt.Println("Server start listening on port: " + port)
 		})
-		err := http.ListenAndServe(":" + port, nil)
+		err := http.ListenAndServe(":"+port, nil)
 		if err != nil {
 			fmt.Printf("port:%s not opened", port)
 		}
@@ -40,6 +40,7 @@ func init() {
 	// Cobra supports Persistent Flags which will work for this command
 	// and all subcommands, e.g.:
 	httpCmd.PersistentFlags().String("name", "n", "server name")
+	httpCmd.PersistentFlags().String("file", "f", "server name")
 
 	// Cobra supports local flags which will only run when this command
 	// is called directly, e.g.:

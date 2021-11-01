@@ -4,8 +4,8 @@ import (
 	"fmt"
 
 	"github.com/gin-gonic/gin"
-	"github.com/spf13/cobra"
 	"github.com/mustafaerbay/mynewtool/common"
+	"github.com/spf13/cobra"
 )
 
 // jsonparserCmd represents the jsonparser command
@@ -29,8 +29,6 @@ to quickly create a Cobra application.`,
 		fmt.Println("jsonparser called")
 	},
 }
-
-
 
 func init() {
 	rootCmd.AddCommand(jsonparserCmd)

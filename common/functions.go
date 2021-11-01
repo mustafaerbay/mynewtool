@@ -3,8 +3,8 @@ package common
 import (
 	"net/http"
 
-    "github.com/gin-gonic/gin"
-    "github.com/mustafaerbay/mynewtool/models"
+	"github.com/gin-gonic/gin"
+	"github.com/mustafaerbay/mynewtool/models"
 )
 
 var albums = []models.Album{
@@ -17,17 +17,18 @@ var albums = []models.Album{
 func GetAlbums(c *gin.Context) {
 	c.IndentedJSON(http.StatusOK, albums)
 }
+
 // GetAlbumByID .
 func GetAlbumByID(c *gin.Context) {
-    id := c.Param("id")
+	id := c.Param("id")
 
-    // Loop through the list of albums, looking for
-    // an album whose ID value matches the parameter.
-    for _, a := range albums {
-        if a.ID == id {
-            c.IndentedJSON(http.StatusOK, a)
-            return
-        }
-    }
-    c.IndentedJSON(http.StatusNotFound, gin.H{"message": "album not found"})
+	// Loop through the list of albums, looking for
+	// an album whose ID value matches the parameter.
+	for _, a := range albums {
+		if a.ID == id {
+			c.IndentedJSON(http.StatusOK, a)
+			return
+		}
+	}
+	c.IndentedJSON(http.StatusNotFound, gin.H{"message": "album not found"})
 }

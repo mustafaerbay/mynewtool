@@ -1,5 +1,6 @@
 [![Go](https://github.com/mustafaerbay/mynewtool/actions/workflows/go.yml/badge.svg?branch=master)](https://github.com/mustafaerbay/mynewtool/actions/workflows/go.yml)
 
+find . -name '.go' -not -path "/vendor/*" -exec gofmt -s -w {} ;
 huawei cloud account name hwc22802785
 # mynewtool
 GOOS=windows GOARCH=386 go build -o mynewtool.exe .
