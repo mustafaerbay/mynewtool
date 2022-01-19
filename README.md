@@ -37,3 +37,4 @@ plan9	amd64
 solaris	amd64
 windows	386
 windows	amd64
+dummy
